@@ -13,7 +13,7 @@ app.use(cookieParser());
 
 //Connecting mongodb with mongoose
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/auth');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/auth');
 
  //Routes
  app.post('/api/user',(req,res)=>{
