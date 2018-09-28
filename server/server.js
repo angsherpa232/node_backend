@@ -45,15 +45,6 @@ mongoose.connect('mongodb://localhost:27017/auth');
      })
  })
 
- app.post('/api/user/logind',(req,res)=>{
-     User.findOne({'email':req.body.email},(err,user)=>{
-     if (!user) res.json({message:'User not found'});
-     bcrypt.compare(req.body.password,user.password,(err,isMatched)=>{
-         if(err) throw err;
-         res.status(200).send(isMatched)
-     })
- })
-})
 
 app.get('/user/profile',auth,(req,res)=>{
     res.status(200).send(req.token)
